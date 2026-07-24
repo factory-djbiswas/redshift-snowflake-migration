@@ -1,0 +1,13 @@
+-- FIXED (RS010) - CREATE TYPE ... AS ENUM is unsupported in Snowflake.
+-- Captured error: SQL compilation error: syntax error at '(' on CREATE TYPE ... AS ENUM.
+-- Resolution: enums are DROPPED entirely; each referencing column becomes
+--   VARCHAR(n) + CHECK (col IN (...)). No standalone object is created here.
+-- The CHECK constraints live on the patched tables:
+--   STUDIES.STATUS        -> CHECK IN ('Planning','Active','Completed','Suspended','Terminated')
+--   STUDIES.PHASE         -> CHECK IN ('Phase I','Phase II','Phase III','Phase IV')
+--   TRIAL_SITES.STATUS    -> CHECK IN ('Initiating','Active','Inactive','Closed')
+--   PATIENTS.STATUS / VISITS.STATUS / LAB_RESULTS.RESULT_STATUS -> VARCHAR (values enforced upstream)
+--
+-- Original (fails):
+--   CREATE TYPE AZ_CLINICAL.STUDY_STATUS AS ENUM ('Planning','Active','Completed','Suspended','Terminated');
+--   ... (PATIENT_STATUS, VISIT_STATUS, SITE_STATUS, RESULT_STATUS)

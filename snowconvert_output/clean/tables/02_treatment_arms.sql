@@ -1,0 +1,18 @@
+-- SnowConvert output (SIMULATED) - CLEAN, runs in Snowflake without modification.
+-- Source: source_postgres/tables/02_entities.sql (treatment_arms)
+-- Notes: FK to studies dropped by converter (recreated later, see RS009); BOOLEAN + DEFAULT preserved.
+CREATE OR REPLACE TABLE AZ_CLINICAL.TREATMENT_ARMS (
+    ARM_ID       INTEGER IDENTITY(1,1),
+    STUDY_ID     INTEGER NOT NULL,
+    ARM_CODE     VARCHAR(20) NOT NULL,
+    ARM_NAME     VARCHAR(100) NOT NULL,
+    DOSAGE       VARCHAR(50),
+    FREQUENCY    VARCHAR(50),
+    ROUTE        VARCHAR(50),
+    PLACEBO_FLAG BOOLEAN NOT NULL DEFAULT FALSE,
+    ACTIVE_FLAG  BOOLEAN NOT NULL DEFAULT TRUE,
+    CREATED_AT   TIMESTAMP_NTZ NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    UPDATED_AT   TIMESTAMP_NTZ NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    PRIMARY KEY (ARM_ID),
+    UNIQUE (STUDY_ID, ARM_CODE)
+);
