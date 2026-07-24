@@ -1,0 +1,23 @@
+.gitignore
+  4376953a93d5b183 1-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.2",
+  "base_commit_sha": "172bc26fa3ef335b33d58f359dc63ba74b3d333f",
+  "prompts": {
+    "4376953a93d5b183": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "d0c13649-e91f-40ce-96aa-75f127b39e48",
+        "model": "auto"
+      },
+      "human_author": "Debjyoti Biswas",
+      "messages": [],
+      "total_additions": 8,
+      "total_deletions": 0,
+      "accepted_lines": 8,
+      "overriden_lines": 0
+    }
+  }
+}
