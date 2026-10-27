@@ -163,8 +163,15 @@ NOTE_VARIANTS = [
 # Generators
 # -----------------------------------------------------------------------------
 
-def generate_seed_data():
-    output_path = os.path.join(os.path.dirname(__file__), "seed_data.sql")
+def generate_seed_data(output_path=None):
+    """Write the seed SQL file.
+
+    ``output_path`` defaults to ``scripts/seed_data.sql`` (the path used by
+    ``run_postgres.sh``). Tests pass an explicit path so they can assert on the
+    generated SQL without touching the committed file.
+    """
+    if output_path is None:
+        output_path = os.path.join(os.path.dirname(__file__), "seed_data.sql")
     with open(output_path, "w") as f:
         f.write("-- Auto-generated clinical-trial seed data for enhanced local Postgres demo.\n")
         f.write("-- Includes intentional null/space/empty-string variations and SnowConvert pain points.\n\n")
