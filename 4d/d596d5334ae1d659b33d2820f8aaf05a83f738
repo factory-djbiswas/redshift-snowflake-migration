@@ -1,0 +1,31 @@
+.github/workflows/tests.yml
+  s_9c18aabdffe25a::t_594b1e62de54ad 1-22
+pytest.ini
+  s_9c18aabdffe25a::t_5096e65806d3ce 1-3
+scripts/generate_seed_data.py
+  s_9c18aabdffe25a::t_e18e72f64b406f 166-174
+tests/conftest.py
+  s_9c18aabdffe25a::t_4ff0c7eb46d856 1-69
+tests/sql_utils.py
+  s_9c18aabdffe25a::t_5c5a03a5bfba0d 1-327
+tests/test_generate_seed_data.py
+  s_9c18aabdffe25a::t_15019559b8a568 1-368
+tests/test_seed_sql_schema.py
+  s_9c18aabdffe25a::t_a69786ea73c6a1 1-263
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4dd596d5334ae1d659b33d2820f8aaf05a83f738",
+  "prompts": {},
+  "sessions": {
+    "s_9c18aabdffe25a": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "4214ff70-056b-4d2c-836f-545d8aff4eeb",
+        "model": "unknown"
+      },
+      "human_author": "Debjyoti Biswas <dj@Debjyotis-MacBook-Pro.local>"
+    }
+  }
+}
